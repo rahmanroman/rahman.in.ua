@@ -1,0 +1,412 @@
+$desktop: "screen and (min-width: 800px)";
+$tablet: "screen and (min-width: 452px) and (max-width: 799px)";
+$mobile: "screen and (max-width: 451px)";
+
+html, body, div, object, h1, h2, h3, p, a, font, img, li, ul, form, table, tbody, tfoot, thead, tr, th, td, figure {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-align: left;
+    font-weight: normal;
+    list-style: none;
+}
+
+body {
+    color: #fff;
+    background: #333 url(images/imagedoc-darknoise.png) 0 0 repeat;
+    font: normal 12pt "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+small {
+    display: block;
+    color: #999;
+}
+
+a {
+    color: #6cf;
+}
+
+header {
+    min-height: 64px;
+}
+
+h1 {
+    padding: 0 4px;
+    line-height: 1.2;
+
+    @media #{$mobile} {
+        font-size: 1.5rem;
+    }
+
+    img {
+        float: left;
+        border: 2px solid #999;
+        border-radius: 4px;
+        margin-right: 21px;
+    }
+}
+
+.content {
+    max-width: 800px;
+
+    @media #{$desktop} {
+        margin: 2rem auto;
+    }
+
+    @media #{$tablet} {
+        margin: 1rem .5rem;
+    }
+
+    @media #{$mobile} {
+        margin: 1rem .5rem;
+    }
+}
+
+.navigator {
+    max-width: 800px;
+    min-width: 300px;
+    margin: 21px auto;
+
+    @media #{$desktop} {
+        max-height: 400px;
+    }
+
+    @media #{$tablet} {
+        width: 80%;
+        height: 400px;
+    }
+
+    @media #{$mobile} {
+        margin-bottom: 0;
+    }
+}
+
+.wrapper {
+    @media #{$desktop} {
+        position: relative;
+        padding-top: 50%;
+    }
+
+    @media #{$tablet} {
+        position: relative;
+        padding-top: 50%;
+    }
+}
+
+.type {
+    @media #{$desktop} {
+        position: absolute;
+        width: 25%;
+        height: 50%;
+        top: 0;
+        left: 0;
+    }
+
+    @media #{$tablet} {
+        position: absolute;
+        width: 50%;
+        height: 200px;
+        top: 0;
+        left: 0;
+    }
+
+    @media #{$mobile} {
+        position: relative;
+        height: 150px;
+        margin-bottom: .5rem;
+    }
+
+    a {
+        @media #{$desktop} {
+            left: 3px;
+            top: 3px;
+            right: 3px;
+            bottom: 3px;
+            position: absolute;
+
+        }
+
+        @media #{$tablet} {
+            left: 3px;
+            top: 3px;
+            right: 3px;
+            bottom: 3px;
+            position: absolute;
+        }
+
+        @media #{$mobile} {
+            height: 150px;
+            position: relative;
+        }
+
+        display: block;
+
+        border-radius: 4px;
+        overflow: hidden;
+
+        &:focus, &:active {
+            outline: none;
+        }
+
+        .title {
+            display: none;
+            position: absolute;
+            z-index: 1001;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 36px;
+            line-height: 1.2;
+            background: rgba(51, 51, 51, .75);
+            color: #eee;
+            padding: 0.25em 0.5em;
+            transition: 300ms ease;
+            overflow: hidden;
+        }
+
+        &:hover .title {
+            display: block;
+        }
+
+        figure {
+            @media #{$desktop} {
+                left: -50px;
+                top: -50px;
+                width: 294px;
+                height: 294px;
+            }
+
+            @media #{$tablet} {
+                left: -75px;
+                top: -75px;
+                width: 450px;
+                height: 450px;
+            }
+            
+            @media #{$tablet} {
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            @media #{$mobile} {
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            position: absolute;
+            overflow: hidden;
+            border-radius: 4px;
+            z-index: 1;
+
+            &:nth-child(n+2) {
+                display: none;
+            }
+
+            img {
+                @media #{$desktop} {
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: auto;
+                    min-width: 200px;
+                    min-height: 200px;
+                    overflow-x: hidden;
+                }
+
+                @media #{$tablet} {
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: auto;
+                    min-width: 350px;
+                    min-height: 350px;
+                    overflow-x: hidden;
+                }
+
+                @media #{$mobile} {
+                    left: 0;
+                    top: -15%;
+                    width: 100%
+                }
+
+                position: absolute;
+
+            }
+
+            figcaption {
+                @media #{$desktop} {
+                    left: 50px;
+                    right: 50px;
+                    bottom: 50px;
+                }
+
+                @media #{$tablet} {
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                }
+
+                @media #{$mobile} {
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                }
+
+                position: absolute;
+                z-index: 2;
+
+                height: 36px;
+                line-height: 1.2;
+                background: rgba(51, 51, 51, .75);
+                color: #eee;
+                padding: 0.25em 0.5em;
+                overflow: hidden;
+            }
+        }
+
+        &:hover {
+            figcaption {
+                display: none;
+            }
+        }
+    }
+
+}
+
+@media #{$desktop} {
+    .type1 {
+        left: 0;
+        top: 0;
+    }
+
+    .type2 {
+        left: 0;
+        top: 50%;
+    }
+
+    .type3 {
+        left: 25%;
+        top: 0;
+        width: 50%;
+        height: 100%;
+
+        a figure {
+            width: 494px;
+            height: 494px;
+        }
+    }
+
+    .type4 {
+        left: 75%;
+        top: 0;
+    }
+
+    .type5 {
+        left: 75%;
+        top: 50%;
+    }
+}
+
+@media #{$tablet} {
+    .type1 {
+
+    }
+
+    .type2 {
+        left: 50%
+    }
+
+    .type3 {
+        top: 200px;
+    }
+
+    .type4 {
+        display: none;
+    }
+
+    .type5 {
+        left: 50%;
+        top: 200px;
+    }
+}
+
+footer {
+    font-size: .8rem;
+    color: #999;
+    border-top: 1px solid #999;
+    padding: 21px 4px;
+
+    p {
+        float: left;
+
+        @media #{$mobile} {
+            float: none;
+            text-align: center;
+        }
+    }
+
+    ul {
+        float: right;
+        text-align: right;
+        margin-top: -7px;
+
+        @media #{$mobile} {
+            float: none;
+            text-align: center;
+            margin: 0 auto .5rem;
+        }
+    }
+
+    li {
+        margin-left: 4px;
+        display: inline-block;
+
+        //@media #{$mobile} {
+        //    float: none;
+        //    //margin: 0 auto 1rem;
+        //}
+
+        a {
+            display: block;
+            width: 32px;
+            height: 32px;
+            overflow: hidden;
+            background: url(images/social2.png) 0 0 no-repeat;
+            opacity: .4;
+
+            &.instagram {
+                background-position: -160px 0;
+            }
+
+            &.facebook {
+                background-position: 0 0;
+            }
+
+            &.twitter {
+                background-position: -64px 0;
+            }
+
+            &.vk {
+                background-position: -32px 0;
+            }
+
+            &.lj {
+                background-position: -128px 0;
+            }
+
+            &.linkedin {
+                background-position: -96px 0;
+            }
+
+            &:hover, &:active, &:focus {
+                opacity: .8;
+            }
+        }
+    }
+}

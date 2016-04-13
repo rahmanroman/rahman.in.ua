@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# profile: http://ogp.me/ns/profile#">
+<head>
+
+    <meta charset="utf-8">
+    <title>Роман Рахман : Личный сайт. Roman Rahman : Personal site</title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+
+    <meta property="og:title" content="Roman Rahman">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="http://rahman.in.ua/">
+    <meta property="og:image" content="http://rahman.in.ua/images/RaR-250x250.jpg">
+    <meta property="profile:first_name" content="Roman">
+    <meta property="profile:last_name" content="Rahman">
+    <meta property="profile:gender" content="male">
+
+    <link rel="stylesheet" href="index.css" inline>
+</head>
+
+<body>{% spaceless %}
+<div class="content">
+    <header>
+        <h1>
+            <img src="images/RaR-64x64.jpg" alt="Roman Rahman" width="64" height="64">
+            Роман Рахман
+            <small>Roman Rahman</small>
+        </h1>
+    </header>
+
+    <div class="navigator">
+        <main class="wrapper" itemscope itemtype="http://schema.org/ImageGallery">
+            {% for type in gallery %}
+            <section class="type type{{ type.id }}">
+                <a target="_blank" data-track-click="{{ type.name | lower }}" href="{{ type.url }}">
+
+                    {% for photo in type.photos %}
+                    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                        <img src="{{ photo.url }}" itemprop="thumbnail" alt="{{ photo.caption }}"/>
+                        <figcaption itemprop="caption description">
+                            {{ photo.caption }}
+                            <small>{{ photo.name }}</small>
+                        </figcaption>
+                    </figure>
+                    {% endfor %}
+
+                    <div class="title">
+                        {{ type.caption }}
+                        <small>{{ type.name }}</small>
+                    </div>
+                </a>
+            </section>
+            {% endfor %}
+        </main>
+    </div>
+
+    <footer>
+        <ul>
+            <li><a data-track-click="instagram" href="http://instagram.com/rahmanroman" class="instagram"
+                   title="Instagram" target="_blank"></a></li>
+            <li><a data-track-click="facebook" href="https://www.facebook.com/roman.rahman" class="facebook"
+                   title="Facebook" target="_blank"></a></li>
+            <li><a data-track-click="twitter" href="http://twitter.com/RahmanRoman" class="twitter"
+                   title="Twitter"
+                   target="_blank"></a></li>
+            <li><a data-track-click="vk" href="http://vk.com/rahmanroman" class="vk" title="Вконтакте"
+                   target="_blank"></a></li>
+            <li><a data-track-click="lj" href="http://webrar.livejournal.com/" class="lj" title="ЖЖ"
+                   target="_blank"></a></li>
+            <li><a data-track-click="linkedin" href="https://ua.linkedin.com/in/romanrahman" class="linkedin"
+                   title="LinkedIn" target="_blank"></a></li>
+        </ul>
+        <p>&copy; 2013&ndash;2016, Roman Rahman</p>
+    </footer>
+
+    <script language="JavaScript" type="text/javascript"
+            src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+
+    <script>
+        $('.type').each(function (index) {
+            var parent = $(this);
+            var items = parent.find('figure').css('z-index', function (n) {
+                return 1000 - n;
+            });
+
+            if (items.length > 1) {
+                var c = 0;
+
+                var viewTimeout = 5000;
+                var fadeTimeOut = 500;
+
+                var next = function () {
+                    var from = c;
+                    var to = (c + 1) % items.length;
+
+                    $(items[from]).fadeOut(fadeTimeOut);
+                    $(items[to]).fadeIn(fadeTimeOut);
+
+                    c = to;
+
+                    setTimeout(next, viewTimeout);
+                };
+
+                setTimeout(next, viewTimeout + fadeTimeOut * (index + 1) / 2);
+            }
+        });
+    </script>
+
+    <script>
+        $('[data-track-click]').click(function (event) {
+            _gaq.push(['_trackEvent', 'ui', 'click', $(this).data('track-click')]);
+        });
+    </script>
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-109141-13']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</div>
+{% endspaceless %}
+</body>
+</html>
