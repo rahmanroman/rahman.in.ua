@@ -39,7 +39,8 @@
 
                     {% for photo in type.photos %}
                     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                        <img src="//res.cloudinary.com/rahmanroman/image/fetch/q_auto/http:{{ photo.url }}" itemprop="thumbnail" alt="{{ photo.caption }}"/>
+                        <img src="//res.cloudinary.com/rahmanroman/image/fetch/q_auto/http:{{ photo.url }}"
+                             itemprop="thumbnail" alt="{{ photo.caption }}"/>
                         <figcaption itemprop="caption description">
                             {{ photo.caption }}
                             <small>{{ photo.name }}</small>
@@ -105,7 +106,7 @@
     </footer>
 
     <script language="JavaScript" type="text/javascript"
-            src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js" defer></script>
+            src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
 
     <script defer>
         $('.type').each(function (index) {
