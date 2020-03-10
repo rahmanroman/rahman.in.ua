@@ -39,7 +39,7 @@
 
                     {% for photo in type.photos %}
                     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                        <img src="//res.cloudinary.com/rahmanroman/image/fetch/q_auto/http:{{ photo.url }}"
+                        <img src="//res.cloudinary.com/rahmanroman/image/fetch/f_webp,q_auto/http:{{ photo.url }}"
                              itemprop="thumbnail" alt="{{ photo.caption }}"/>
                         <figcaption itemprop="caption description">
                             {{ photo.caption }}
