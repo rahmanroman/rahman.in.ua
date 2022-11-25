@@ -13,7 +13,7 @@ var del = require('del');
 var data = require('./src/data.json');
 
 gulp.task('default', ['html'], function (cb) {
-    del(['public/*.css'], cb);
+    del(['docs/*.css'], cb);
 });
 
 gulp.task('css', function() {
@@ -21,7 +21,7 @@ gulp.task('css', function() {
         .pipe(sass({
             //compress: true
         }))
-        .pipe(gulp.dest('public/'));
+        .pipe(gulp.dest('docs/'));
 });
 
 gulp.task('html', ['css'], function() {
@@ -31,9 +31,9 @@ gulp.task('html', ['css'], function() {
         }))
         .pipe(inlinesource({
             compress: true,
-            rootpath: path.resolve('public')
+            rootpath: path.resolve('docs')
         }))
-        .pipe(gulp.dest('public/'));
+        .pipe(gulp.dest('docs/'));
 });
 
 gulp.task('watch', function () {
